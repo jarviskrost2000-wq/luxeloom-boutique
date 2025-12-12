@@ -29,7 +29,7 @@ categories.forEach(function (item) {
 // -------------------------
 
 const clothing = [
-    { image: "https://via.placeholder.com/200x200.png?text=T-Shirt", price: 4500 },
+    { image: 'IMG-20251212-WA0073.jpg', price: 4500 },
     { image: "https://via.placeholder.com/200x200.png?text=Jeans", price: 6000 },
     { image: "https://via.placeholder.com/200x200.png?text=Jacket", price: 3500 }
 ];
