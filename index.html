@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxeLoom</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f5f5;
+        }
+
+        /* Header with logo */
+        header {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background: #ffe6e6;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 28px;
+            color: #d6336c;
+            margin-left: 15px;
+        }
+
+        /* Layout */
+        .main {
+            display: flex;
+        }
+
+        /* Vertical categories menu */
+        #menu {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
+            background: #fff0f5;
+            min-width: 150px;
+            height: calc(100vh - 70px);
+            box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+        }
+
+        #menu li {
+            list-style: none;
+            cursor: pointer;
+            padding: 10px;
+            background: #d6336c;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        #menu li:hover {
+            background: #a32c55;
+        }
+
+        /* Item grid */
+        #itemList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 20px;
+            padding: 20px;
+            flex: 1;
+        }
+
+        .product {
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            width: 180px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .product img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .product button:hover {
+            background: #45a049;
+        }
+
+        /* Cart button */
+        #btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            background: orange;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* Cart container */
+        #container {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .cart-item button {
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            padding: 3px 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 64 64">
+            <circle cx="32" cy="32" r="30" fill="#d6336c"/>
+            <path d="M32 16 C28 16, 24 20, 32 32 C40 44, 36 48, 32 48 C28 48, 24 44, 32 32 C40 20, 36 16, 32 16 Z" fill="#ffe6e6"/>
+        </svg>
+        <h1>Luxe Loom</h1>
+        <h2>Rosie's Collection</h2>
+    </header>
+
+    <div class="main">
+        <ul id="menu"></ul>
+        <div id="itemList"></div>
+    </div>
+
+    <button id="btn">🛒 View Cart</button>
+
+    <h3>Your Cart</h3>
+    <div id="container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
