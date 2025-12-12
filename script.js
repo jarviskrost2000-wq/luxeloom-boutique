@@ -29,21 +29,25 @@ categories.forEach(function (item) {
 // -------------------------
 
 const clothing = [
-    { image: 'IMG-20251212-WA0073.jpg', price: 4500 },
-    { image: "https://via.placeholder.com/200x200.png?text=Jeans", price: 6000 },
-    { image: "https://via.placeholder.com/200x200.png?text=Jacket", price: 3500 }
+    { image: 'IMG-20251212-WA0073.jpg', price: 13000 },
+    { image: 'IMG-20251212-WA0074.jpg', price: 13000 },
+    { image: 'IMG-20251212-WA0075.jpg', price: 13500 },
+    { image: 'IMG-20251212-WA0076.jpg' , price: 14000}
+    
 ];
 
 const footwear = [
-    { image: "https://via.placeholder.com/200x200.png?text=Sneakers", price: 7000 },
-    { image: "https://via.placeholder.com/200x200.png?text=Boots", price: 12000 },
-    { image: "https://via.placeholder.com/200x200.png?text=Sandals", price: 5000 }
+    { image: 'IMG-20251212-WA0082.jpg', price: 51000 , size:42-46},
+    { image: 'IMG-20251212-WA0087.jpg', price: 32000, size:42-46 },
+    { image: 'IMG-20251212-WA0084.jpg', price: 25000, size:37-42 }
+    { image: 'IMG-20251212-WA0083.jpg', price: 18000, size: 38-41}
 ];
 
 const accessories = [
-    { image: "https://via.placeholder.com/200x200.png?text=Watch", price: 2500 },
-    { image: "https://via.placeholder.com/200x200.png?text=Bag", price: 2000 },
-    { image: "https://via.placeholder.com/200x200.png?text=Hat", price: 1500 }
+    { image: ['IMG-20251212-WA0077.jpg','IMG-20251212-WA0078.jpg','IMG-20251212-WA0080.jpg','IMG-20251212-WA0079.jpg'], price: 7000 },
+    { image: 'IMG-20251212-WA0081.jpg', price: 18500 },
+    { image: 'IMG-20251212-WA0086.jpg', price:6500},
+    { image: 'IMG-20251212-WA0085.jpg', price:5000}
 ];
 
 const fragrances = [
@@ -74,6 +78,7 @@ function display(category) {
         itemdiv.innerHTML = `
             <img src="${item.image}" alt="item">
             <p>₦${item.price}</p>
+            <p>${item.size}</p>
             <button class="addBtn">ADD</button>
         `;
 
