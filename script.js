@@ -39,7 +39,7 @@ const clothing = [
 const footwear = [
     { image: 'IMG-20251212-WA0082.jpg', price: 51000 , size:42-46},
     { image: 'IMG-20251212-WA0087.jpg', price: 32000, size:42-46 },
-    { image: 'IMG-20251212-WA0084.jpg', price: 25000, size:37-42 }
+    { image: 'IMG-20251212-WA0084.jpg', price: 25000, size:37-42 },
     { image: 'IMG-20251212-WA0083.jpg', price: 18000, size: 38-41}
 ];
 
