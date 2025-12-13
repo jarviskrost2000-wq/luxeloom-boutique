@@ -1,3 +1,4 @@
+
 // -------------------------
 // INITIAL SETUP
 // -------------------------
@@ -5,59 +6,59 @@
 const menu = document.getElementById('menu');
 const itemList = document.getElementById('itemList');
 const cartContainer = document.getElementById('container');
-const cartBtn = document.getElementById('btn1');
-const orderbtn = document.getElementById('btn2');
+const cartBtn = document.getElementById('btn1');   // View cart
+const orderbtn = document.getElementById('btn2');  // Order via WhatsApp
 
-let categories = ['clothing','footwear','accessories','fragrances'];
+let categories = ['clothing', 'footwear', 'accessories', 'fragrances'];
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 // Clear menu first
 menu.innerHTML = "";
 
-// Create category buttons
-categories.forEach(function (item) {
+// -------------------------
+// CREATE CATEGORY BUTTONS
+// -------------------------
+
+categories.forEach(category => {
     const li = document.createElement('li');
-    li.textContent = item.toUpperCase();
-    li.addEventListener('click', function () {
-        display(item);
-    });
+    li.textContent = category.toUpperCase();
+    li.addEventListener('click', () => display(category));
     menu.appendChild(li);
 });
 
 
 // -------------------------
-// ITEM DATA WITH RELIABLE IMAGES
+// ITEM DATA
 // -------------------------
 
 const clothing = [
     { image: 'IMG-20251212-WA0073.jpg', price: 13000 },
     { image: 'IMG-20251212-WA0074.jpg', price: 13000 },
     { image: 'IMG-20251212-WA0075.jpg', price: 14000 },
-    { image: 'IMG-20251212-WA0076.jpg' , price: 13500}
-    
+    { image: 'IMG-20251212-WA0076.jpg', price: 13500 }
 ];
 
 const footwear = [
-    { image: 'IMG-20251212-WA0082.jpg', price: 51000 , size:'42 to 46'},
-    { image: 'IMG-20251212-WA0087.jpg', price: 32000, size:'42 to 46' },
-    { image: 'IMG-20251212-WA0084.jpg', price: 25000, size:'37 to 42' },
-    { image: 'IMG-20251212-WA0083.jpg', price: 18000, size: '38 to 41'}
+    { image: 'IMG-20251212-WA0082.jpg', price: 51000, size: '42–46' },
+    { image: 'IMG-20251212-WA0087.jpg', price: 32000, size: '42–46' },
+    { image: 'IMG-20251212-WA0084.jpg', price: 25000, size: '37–42' },
+    { image: 'IMG-20251212-WA0083.jpg', price: 18000, size: '38–41' }
 ];
 
 const accessories = [
-    { image: 'IMG-20251212-WA0077.jpg', price: 5000},
-    { image: 'IMG-20251212-WA0078.jpg', price: 5000},
-    { image: 'IMG-20251212-WA0080.jpg', price: 5000},
+    { image: 'IMG-20251212-WA0077.jpg', price: 5000 },
+    { image: 'IMG-20251212-WA0078.jpg', price: 5000 },
+    { image: 'IMG-20251212-WA0080.jpg', price: 5000 },
     { image: 'IMG-20251212-WA0079.jpg', price: 5000 },
     { image: 'IMG-20251212-WA0081.jpg', price: 18500 },
-    { image: 'IMG-20251212-WA0086.jpg', price:6500},
-    { image: 'IMG-20251212-WA0085.jpg', price:5000}
+    { image: 'IMG-20251212-WA0086.jpg', price: 6500 },
+    { image: 'IMG-20251212-WA0085.jpg', price: 5000 }
 ];
 
 const fragrances = [
-    { image: "https://via.placeholder.com/200x200.png?text=Perfume", price: 8000 },
-    { image: "https://via.placeholder.com/200x200.png?text=Cologne", price: 11000 },
-    { image: "https://via.placeholder.com/200x200.png?text=Body+Spray", price: 9000 }
+    { image: 'https://via.placeholder.com/200?text=Perfume', price: 8000 },
+    { image: 'https://via.placeholder.com/200?text=Cologne', price: 11000 },
+    { image: 'https://via.placeholder.com/200?text=Body+Spray', price: 9000 }
 ];
 
 
@@ -69,7 +70,6 @@ function display(category) {
     itemList.innerHTML = '';
 
     let items = [];
-
     if (category === 'clothing') items = clothing;
     if (category === 'footwear') items = footwear;
     if (category === 'accessories') items = accessories;
@@ -77,17 +77,17 @@ function display(category) {
 
     items.forEach(item => {
         const itemdiv = document.createElement('div');
-        itemdiv.classList.add("product");
+        itemdiv.classList.add('product');
 
         itemdiv.innerHTML = `
-            <img src="${item.image}" alt="item">
+            <img src="${item.image}" alt="product">
             <p>₦${item.price}</p>
-            <p>${item.size}</p>
+            ${item.size ? `<p>Size: ${item.size}</p>` : ''}
             <button class="addBtn">ADD</button>
         `;
 
         const addBtn = itemdiv.querySelector('.addBtn');
-        addBtn.addEventListener('click', () => addToCart(item));
+        addBtn.addEventListener('click', () => addToCart(item, category));
 
         itemList.appendChild(itemdiv);
     });
@@ -98,9 +98,14 @@ function display(category) {
 // ADD TO CART
 // -------------------------
 
-function addToCart(item) {
-    cart.push({ image: item.image, price: item.price });
+function addToCart(item, category) {
+    cart.push({
+        image: item.image,
+        price: item.price,
+        category: category
+    });
     saveItem();
+    alert("Item added to cart");
 }
 
 
@@ -113,12 +118,18 @@ cartBtn.addEventListener('click', displayCart);
 function displayCart() {
     cartContainer.innerHTML = '';
 
+    if (cart.length === 0) {
+        cartContainer.innerHTML = "<p>Your cart is empty</p>";
+        return;
+    }
+
     cart.forEach((item, index) => {
         const cartdiv = document.createElement('div');
-        cartdiv.classList.add("cart-item");
+        cartdiv.classList.add('cart-item');
 
         cartdiv.innerHTML = `
             <img src="${item.image}">
+            <span>${item.category}</span>
             <span>₦${item.price}</span>
         `;
 
@@ -127,9 +138,16 @@ function displayCart() {
         delBtn.addEventListener('click', () => delItem(index));
 
         cartdiv.appendChild(delBtn);
+        cartContainer.appendChild(cartdiv);
+    });
+}
 
-             
-orderBtn.addEventListener('click', () => {
+
+// -------------------------
+// ORDER VIA WHATSAPP
+// -------------------------
+
+orderbtn.addEventListener('click', () => {
     if (cart.length === 0) {
         alert("Your cart is empty");
         return;
@@ -138,24 +156,16 @@ orderBtn.addEventListener('click', () => {
     let message = "🛍️ *New Order*\n\n";
 
     cart.forEach((item, index) => {
-        message += `${index + 1}. ${item.name}\n`;
-        message += `   Price: ₦${item.price}\n`;
-        message += `   Image: ${location.origin}/${item.image}\n\n`;
+        message += `${index + 1}. ${item.category.toUpperCase()}\n`;
+        message += `Price: ₦${item.price}\n`;
+        message += `Image: ${location.origin}/${item.image}\n\n`;
     });
-
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/2349068366743?text=${encodedMessage}`;
 
     window.open(whatsappURL, "_blank");
 });
-
- cartdiv.appendChild(orderbtn);
-
-
-       cartContainer.appendChild(cartdiv);
-    });
-}
 
 
 // -------------------------
