@@ -128,9 +128,28 @@ function displayCart() {
 
         cartdiv.appendChild(delBtn);
 
-             orderbtn.addEventListener('click', ()=>{
-const url ='https://wa.me/9068366743'
-window.open(url, "_blank");});
+             
+orderBtn.addEventListener('click', () => {
+    if (cart.length === 0) {
+        alert("Your cart is empty");
+        return;
+    }
+
+    let message = "🛍️ *New Order*\n\n";
+
+    cart.forEach((item, index) => {
+        message += `${index + 1}. ${item.name}\n`;
+        message += `   Price: ₦${item.price}\n`;
+        message += `   Image: ${location.origin}/${item.image}\n\n`;
+    });
+
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/2349068366743?text=${encodedMessage}`;
+
+    window.open(whatsappURL, "_blank");
+});
+
  cartdiv.appendChild(orderbtn);
 
 
