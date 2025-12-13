@@ -100,7 +100,7 @@
         }
 
         /* Cart button */
-        #btn {
+        #btn1 {
             display: block;
             margin: 20px auto;
             padding: 10px 20px;
@@ -120,6 +120,19 @@
             background: white;
             border-radius: 10px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        
+        /* Order button */
+        #btn2 {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            background: orange;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
         }
 
         .cart-item {
@@ -163,11 +176,11 @@
         <div id="itemList"></div>
     </div>
 
-    <button id="btn">🛒 View Cart</button>
+    <button id="btn1">🛒 View Cart</button>
 
     <h3>Your Cart</h3>
     <div id="container"></div>
-
+    <button id="btn2">ORDER</button>
     <script src="script.js"></script>
 </body>
 </html>
