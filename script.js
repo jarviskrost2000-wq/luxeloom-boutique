@@ -5,7 +5,8 @@
 const menu = document.getElementById('menu');
 const itemList = document.getElementById('itemList');
 const cartContainer = document.getElementById('container');
-const cartBtn = document.getElementById('btn');
+const cartBtn = document.getElementById('btn1');
+const orderbtn = document.getElementById('btn2');
 
 let categories = ['clothing','footwear','accessories','fragrances'];
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -126,7 +127,14 @@ function displayCart() {
         delBtn.addEventListener('click', () => delItem(index));
 
         cartdiv.appendChild(delBtn);
-        cartContainer.appendChild(cartdiv);
+
+             orderbtn.addEventListener('click', ()=>{
+const url ='https://wa.me/9068366743'
+window.open(url, "_blank");});
+ cartdiv.appendChild(orderbtn);
+
+
+       cartContainer.appendChild(cartdiv);
     });
 }
 
