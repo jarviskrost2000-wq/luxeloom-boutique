@@ -35,12 +35,6 @@ header h2 {
     color: white;
 }
 
-header p {
-    margin-left: auto;
-    color: white;
-    font-weight: bold;
-}
-
 /* ---------- LAYOUT ---------- */
 .main {
     display: flex;
@@ -100,10 +94,6 @@ header p {
     border-radius: 8px;
 }
 
-.product h4 {
-    margin: 8px 0;
-}
-
 .product button {
     padding: 6px 12px;
     background: #dc3545;
@@ -118,7 +108,7 @@ header p {
     background: #198754;
 }
 
-/* ---------- CART BUTTON ---------- */
+/* ---------- BUTTONS ---------- */
 #btn1, #btn2 {
     display: block;
     margin: 20px auto;
@@ -130,10 +120,6 @@ header p {
     border-radius: 12px;
     cursor: pointer;
     font-weight: bold;
-}
-
-#btn1:hover, #btn2:hover {
-    background: linear-gradient(to right, #198754, #0f5132);
 }
 
 /* ---------- CART ---------- */
@@ -160,40 +146,27 @@ header p {
     border-radius: 6px;
     object-fit: cover;
 }
-
-.cart-item button {
-    background: red;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 4px 8px;
-    cursor: pointer;
-}
 </style>
 </head>
 
 <body>
 
 <header>
-    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 64 64">
+    <svg width="50" height="50" viewBox="0 0 64 64">
         <circle cx="32" cy="32" r="30" fill="gold"/>
-        <path d="M32 16 C28 16, 24 20, 32 32 C40 44, 36 48, 32 48 C28 48, 24 44, 32 32 C40 20, 36 16, 32 16 Z" fill="#dc3545"/>
+        <path d="M32 16 C28 16,24 20,32 32 C40 44,36 48,32 48 C28 48,24 44,32 32 C40 20,36 16,32 16 Z" fill="#dc3545"/>
     </svg>
     <h1>Luxe Loom</h1>
     <h2>Rosie's Collection</h2>
 </header>
 
 <div class="main">
-    <ul id="menu">
-        <li>Clothing</li>
-        <li>Footwear</li>
-        <li>Accessories</li>
-        <li>Fragrances</li>
-    </ul>
+    <!-- JS will fill this -->
+    <ul id="menu"></ul>
 
-    <div id="itemList">
-        
-        </div>
+    <!-- Products -->
+    <div id="itemList"></div>
+</div>
 
 <button id="btn1">🛒 View Cart</button>
 
@@ -201,6 +174,9 @@ header p {
 <div id="container"></div>
 
 <button id="btn2">ORDER ON WHATSAPP</button>
+
+<!-- LINK YOUR JS -->
+<script src="script.js"></script>
 
 </body>
 </html>
