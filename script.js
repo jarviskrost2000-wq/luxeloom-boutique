@@ -31,8 +31,8 @@ categories.forEach(function (item) {
 const clothing = [
     { image: 'IMG-20251212-WA0073.jpg', price: 13000 },
     { image: 'IMG-20251212-WA0074.jpg', price: 13000 },
-    { image: 'IMG-20251212-WA0075.jpg', price: 13500 },
-    { image: 'IMG-20251212-WA0076.jpg' , price: 14000}
+    { image: 'IMG-20251212-WA0075.jpg', price: 14000 },
+    { image: 'IMG-20251212-WA0076.jpg' , price: 13500}
     
 ];
 
@@ -44,7 +44,10 @@ const footwear = [
 ];
 
 const accessories = [
-    { image: ['IMG-20251212-WA0077.jpg','IMG-20251212-WA0078.jpg','IMG-20251212-WA0080.jpg','IMG-20251212-WA0079.jpg'], price: 7000 },
+    { image: 'IMG-20251212-WA0077.jpg', price: 5000},
+    { image: 'IMG-20251212-WA0078.jpg', price: 5000},
+    { image: 'IMG-20251212-WA0080.jpg', price: 5000},
+    { image: 'IMG-20251212-WA0079.jpg', price: 5000 },
     { image: 'IMG-20251212-WA0081.jpg', price: 18500 },
     { image: 'IMG-20251212-WA0086.jpg', price:6500},
     { image: 'IMG-20251212-WA0085.jpg', price:5000}
